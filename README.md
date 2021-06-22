@@ -1,4 +1,4 @@
-# OpenAPIClient-php
+# Ebay Finance SDK PHP
 
 This API is used to retrieve seller payouts and monetary transaction details related to those payouts.
 
@@ -18,11 +18,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
+      "url": "https://github.com/telrik/ebay-finance-sdk.git"
     }
   ],
   "require": {
-    "GIT_USER_ID/GIT_REPO_ID": "*@dev"
+    "telrik/ebay-finance-sdk": "*@dev"
   }
 }
 ```
