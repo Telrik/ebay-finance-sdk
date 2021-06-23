@@ -7,7 +7,7 @@ This API is used to retrieve seller payouts and monetary transaction details rel
 
 ### Requirements
 
-PHP 7.2 and later.
+PHP 5.6 and later.
 
 ### Composer
 
