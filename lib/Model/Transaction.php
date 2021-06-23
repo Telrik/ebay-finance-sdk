@@ -45,20 +45,20 @@ use \OpenAPI\Client\ObjectSerializer;
  */
 class Transaction implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'Transaction';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'amount' => '\OpenAPI\Client\Model\Amount',
         'booking_entry' => 'string',
@@ -80,12 +80,12 @@ class Transaction implements ModelInterface, ArrayAccess, \JsonSerializable
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'amount' => null,
         'booking_entry' => null,
@@ -259,23 +259,23 @@ class Transaction implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['amount'] = $data['amount'] ?? null;
-        $this->container['booking_entry'] = $data['booking_entry'] ?? null;
-        $this->container['buyer'] = $data['buyer'] ?? null;
-        $this->container['fee_type'] = $data['fee_type'] ?? null;
-        $this->container['order_id'] = $data['order_id'] ?? null;
-        $this->container['order_line_items'] = $data['order_line_items'] ?? null;
-        $this->container['payments_entity'] = $data['payments_entity'] ?? null;
-        $this->container['payout_id'] = $data['payout_id'] ?? null;
-        $this->container['references'] = $data['references'] ?? null;
-        $this->container['sales_record_reference'] = $data['sales_record_reference'] ?? null;
-        $this->container['total_fee_basis_amount'] = $data['total_fee_basis_amount'] ?? null;
-        $this->container['total_fee_amount'] = $data['total_fee_amount'] ?? null;
-        $this->container['transaction_date'] = $data['transaction_date'] ?? null;
-        $this->container['transaction_id'] = $data['transaction_id'] ?? null;
-        $this->container['transaction_memo'] = $data['transaction_memo'] ?? null;
-        $this->container['transaction_status'] = $data['transaction_status'] ?? null;
-        $this->container['transaction_type'] = $data['transaction_type'] ?? null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['booking_entry'] = isset($data['booking_entry']) ? $data['booking_entry'] : null;
+        $this->container['buyer'] = isset($data['buyer']) ? $data['buyer'] : null;
+        $this->container['fee_type'] = isset($data['fee_type']) ? $data['fee_type'] : null;
+        $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
+        $this->container['order_line_items'] = isset($data['order_line_items']) ? $data['order_line_items'] : null;
+        $this->container['payments_entity'] = isset($data['payments_entity']) ? $data['payments_entity'] : null;
+        $this->container['payout_id'] = isset($data['payout_id']) ? $data['payout_id'] : null;
+        $this->container['references'] = isset($data['references']) ? $data['references'] : null;
+        $this->container['sales_record_reference'] = isset($data['sales_record_reference']) ? $data['sales_record_reference'] : null;
+        $this->container['total_fee_basis_amount'] = isset($data['total_fee_basis_amount']) ? $data['total_fee_basis_amount'] : null;
+        $this->container['total_fee_amount'] = isset($data['total_fee_amount']) ? $data['total_fee_amount'] : null;
+        $this->container['transaction_date'] = isset($data['transaction_date']) ? $data['transaction_date'] : null;
+        $this->container['transaction_id'] = isset($data['transaction_id']) ? $data['transaction_id'] : null;
+        $this->container['transaction_memo'] = isset($data['transaction_memo']) ? $data['transaction_memo'] : null;
+        $this->container['transaction_status'] = isset($data['transaction_status']) ? $data['transaction_status'] : null;
+        $this->container['transaction_type'] = isset($data['transaction_type']) ? $data['transaction_type'] : null;
     }
 
     /**
@@ -709,6 +709,7 @@ class Transaction implements ModelInterface, ArrayAccess, \JsonSerializable
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -730,14 +731,14 @@ class Transaction implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**
      * Sets value based on offset.
      *
      * @param int|null $offset Offset
-     * @param mixed    $value  Value to be set
+     * @param mixed $value Value to be set
      *
      * @return void
      */
@@ -771,7 +772,7 @@ class Transaction implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

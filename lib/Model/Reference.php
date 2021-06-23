@@ -45,32 +45,32 @@ use \OpenAPI\Client\ObjectSerializer;
  */
 class Reference implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'Reference';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'reference_id' => 'string',
         'reference_type' => 'string'
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'reference_id' => null,
         'reference_type' => null
@@ -184,8 +184,8 @@ class Reference implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['reference_id'] = $data['reference_id'] ?? null;
-        $this->container['reference_type'] = $data['reference_type'] ?? null;
+        $this->container['reference_id'] = isset($data['reference_id']) ? $data['reference_id'] : null;
+        $this->container['reference_type'] = isset($data['reference_type']) ? $data['reference_type'] : null;
     }
 
     /**
@@ -259,6 +259,7 @@ class Reference implements ModelInterface, ArrayAccess, \JsonSerializable
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -280,14 +281,14 @@ class Reference implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**
      * Sets value based on offset.
      *
      * @param int|null $offset Offset
-     * @param mixed    $value  Value to be set
+     * @param mixed $value Value to be set
      *
      * @return void
      */
@@ -321,7 +322,7 @@ class Reference implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

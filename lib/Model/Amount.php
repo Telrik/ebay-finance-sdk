@@ -45,20 +45,20 @@ use \OpenAPI\Client\ObjectSerializer;
  */
 class Amount implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'Amount';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'currency' => 'string',
         'converted_from_currency' => 'string',
@@ -68,12 +68,12 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'currency' => null,
         'converted_from_currency' => null,
@@ -199,11 +199,11 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['currency'] = $data['currency'] ?? null;
-        $this->container['converted_from_currency'] = $data['converted_from_currency'] ?? null;
-        $this->container['converted_from_value'] = $data['converted_from_value'] ?? null;
-        $this->container['exchange_rate'] = $data['exchange_rate'] ?? null;
-        $this->container['value'] = $data['value'] ?? null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['converted_from_currency'] = isset($data['converted_from_currency']) ? $data['converted_from_value'] : null;
+        $this->container['converted_from_value'] = isset($data['converted_from_value']) ? $data['converted_from_value'] : null;
+        $this->container['exchange_rate'] = isset($data['exchange_rate']) ? $data['exchange_rate'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -349,6 +349,7 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -370,14 +371,14 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**
      * Sets value based on offset.
      *
      * @param int|null $offset Offset
-     * @param mixed    $value  Value to be set
+     * @param mixed $value Value to be set
      *
      * @return void
      */
@@ -411,7 +412,7 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

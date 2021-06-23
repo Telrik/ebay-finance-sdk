@@ -45,20 +45,20 @@ use \OpenAPI\Client\ObjectSerializer;
  */
 class Payout implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'Payout';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'amount' => '\OpenAPI\Client\Model\Amount',
         'last_attempted_payout_date' => 'string',
@@ -71,12 +71,12 @@ class Payout implements ModelInterface, ArrayAccess, \JsonSerializable
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'amount' => null,
         'last_attempted_payout_date' => null,
@@ -214,14 +214,14 @@ class Payout implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['amount'] = $data['amount'] ?? null;
-        $this->container['last_attempted_payout_date'] = $data['last_attempted_payout_date'] ?? null;
-        $this->container['payout_date'] = $data['payout_date'] ?? null;
-        $this->container['payout_id'] = $data['payout_id'] ?? null;
-        $this->container['payout_instrument'] = $data['payout_instrument'] ?? null;
-        $this->container['payout_status'] = $data['payout_status'] ?? null;
-        $this->container['payout_status_description'] = $data['payout_status_description'] ?? null;
-        $this->container['transaction_count'] = $data['transaction_count'] ?? null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['last_attempted_payout_date'] = isset($data['last_attempted_payout_date']) ? $data['last_attempted_payout_date'] : null;
+        $this->container['payout_date'] = isset($data['payout_date']) ? $data['payout_date'] : null;
+        $this->container['payout_id'] = isset($data['payout_id']) ? $data['payout_id'] : null;
+        $this->container['payout_instrument'] = isset($data['payout_instrument']) ? $data['payout_instrument'] : null;
+        $this->container['payout_status'] = isset($data['payout_status']) ? $data['payout_status'] : null;
+        $this->container['payout_status_description'] = isset($data['payout_status_description']) ? $data['payout_status_description'] : null;
+        $this->container['transaction_count'] = isset($data['transaction_count']) ? $data['transaction_count'] : null;
     }
 
     /**
@@ -439,6 +439,7 @@ class Payout implements ModelInterface, ArrayAccess, \JsonSerializable
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -460,14 +461,14 @@ class Payout implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**
      * Sets value based on offset.
      *
      * @param int|null $offset Offset
-     * @param mixed    $value  Value to be set
+     * @param mixed $value Value to be set
      *
      * @return void
      */
@@ -501,7 +502,7 @@ class Payout implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

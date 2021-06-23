@@ -45,20 +45,20 @@ use \OpenAPI\Client\ObjectSerializer;
  */
 class Transactions implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'Transactions';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'href' => 'string',
         'limit' => 'int',
@@ -70,12 +70,12 @@ class Transactions implements ModelInterface, ArrayAccess, \JsonSerializable
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'href' => null,
         'limit' => 'int32',
@@ -209,13 +209,13 @@ class Transactions implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['href'] = $data['href'] ?? null;
-        $this->container['limit'] = $data['limit'] ?? null;
-        $this->container['next'] = $data['next'] ?? null;
-        $this->container['offset'] = $data['offset'] ?? null;
-        $this->container['prev'] = $data['prev'] ?? null;
-        $this->container['total'] = $data['total'] ?? null;
-        $this->container['transactions'] = $data['transactions'] ?? null;
+        $this->container['href'] = isset($data['href']) ? $data['href'] : null;
+        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
+        $this->container['next'] = isset($data['next']) ? $data['next'] : null;
+        $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
+        $this->container['prev'] = isset($data['prev']) ? $data['prev'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['transactions'] = isset($data['transactions']) ? $data['transactions'] : null;
     }
 
     /**
@@ -409,6 +409,7 @@ class Transactions implements ModelInterface, ArrayAccess, \JsonSerializable
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -430,14 +431,14 @@ class Transactions implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**
      * Sets value based on offset.
      *
      * @param int|null $offset Offset
-     * @param mixed    $value  Value to be set
+     * @param mixed $value Value to be set
      *
      * @return void
      */
@@ -471,7 +472,7 @@ class Transactions implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

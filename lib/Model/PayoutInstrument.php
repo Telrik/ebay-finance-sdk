@@ -45,20 +45,20 @@ use \OpenAPI\Client\ObjectSerializer;
  */
 class PayoutInstrument implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'PayoutInstrument';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'account_last_four_digits' => 'string',
         'instrument_type' => 'string',
@@ -66,12 +66,12 @@ class PayoutInstrument implements ModelInterface, ArrayAccess, \JsonSerializable
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'account_last_four_digits' => null,
         'instrument_type' => null,
@@ -189,9 +189,9 @@ class PayoutInstrument implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['account_last_four_digits'] = $data['account_last_four_digits'] ?? null;
-        $this->container['instrument_type'] = $data['instrument_type'] ?? null;
-        $this->container['nickname'] = $data['nickname'] ?? null;
+        $this->container['account_last_four_digits'] = isset($data['account_last_four_digits']) ? $data['account_last_four_digits'] : null;
+        $this->container['instrument_type'] = isset($data['instrument_type']) ? $data['instrument_type'] : null;
+        $this->container['nickname'] = isset($data['nickname']) ? $data['nickname'] : null;
     }
 
     /**
@@ -289,6 +289,7 @@ class PayoutInstrument implements ModelInterface, ArrayAccess, \JsonSerializable
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -310,14 +311,14 @@ class PayoutInstrument implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**
      * Sets value based on offset.
      *
      * @param int|null $offset Offset
-     * @param mixed    $value  Value to be set
+     * @param mixed $value Value to be set
      *
      * @return void
      */
@@ -351,7 +352,7 @@ class PayoutInstrument implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

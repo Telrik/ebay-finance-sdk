@@ -91,7 +91,7 @@ class PayoutApi
      *
      * @param int $hostIndex Host index (required)
      */
-    public function setHostIndex($hostIndex): void
+    public function setHostIndex($hostIndex)
     {
         $this->hostIndex = $hostIndex;
     }
